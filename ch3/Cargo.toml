@@ -1,0 +1,8 @@
+[package]
+name = "LearningRust"
+
+[[bin]]
+path = "main.rs"
+name = "main"
+
+
