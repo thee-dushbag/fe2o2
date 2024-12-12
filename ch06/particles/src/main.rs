@@ -1,6 +1,6 @@
 use piston_window::*;
 use rand::prelude::ThreadRng;
-use rand::{Rng, rng};
+use rand::{rng, Rng};
 use std::alloc::{GlobalAlloc, Layout, System};
 use std::time::Instant;
 
@@ -98,8 +98,8 @@ impl World {
       for (i, particle) in particle_iter {
         if particle.color[3] < 0.02 {
           to_delete = Some(i);
+          break;
         }
-        break;
       }
 
       self.particles.remove(match to_delete {

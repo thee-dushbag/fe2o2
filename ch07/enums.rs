@@ -16,26 +16,26 @@ enum Payload {
 }
 
 fn main() {
-  let mut payloads = Vec::<Payload>::new();
-  payloads.push(Payload::Age(60));
-  payloads.push(Payload::Name("Kenya"));
-  payloads.push(Payload::Rgb {
-    r: 19,
-    g: 34,
-    b: 56,
-  });
-  payloads.push(Payload::Name("Simon"));
-  payloads.push(Payload::School {
-    name: "Jomo Kenya University",
-    country: "Kenya",
-  });
-  payloads.push(Payload::Name("Faith"));
-  payloads.push(Payload::School {
-    name: "Harvard University",
-    country: "USA",
-  });
-  payloads.push(Payload::Name("Lydia"));
-  payloads.shrink_to_fit();
+  let payloads = vec![
+    Payload::Age(60),
+    Payload::Name("Kenya"),
+    Payload::Rgb {
+      r: 19,
+      g: 34,
+      b: 56,
+    },
+    Payload::Name("Simon"),
+    Payload::School {
+      name: "Jomo Kenya University",
+      country: "Kenya",
+    },
+    Payload::Name("Faith"),
+    Payload::School {
+      name: "Harvard University",
+      country: "USA",
+    },
+    Payload::Name("Lydia"),
+  ];
 
   let mut val = Payload::Name("Simon Nganga");
 
@@ -64,8 +64,8 @@ fn main() {
   }
 
   println!("sizeof(&str)={}", size_of::<&str>());
+  println!("sizeof(Payload)={}", size_of::<Payload>());
   for payload in &payloads {
-    print!("[Size: {}] ", size_of_val(payload));
     match payload {
       Payload::Empty => continue,
       Payload::Age(age) => println!("You are {age} years old!"),
@@ -75,4 +75,3 @@ fn main() {
     }
   }
 }
-
